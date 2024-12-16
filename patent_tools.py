@@ -108,8 +108,9 @@ def get_talent(url, name, value):
         # print(g_elements)
         # 查找 <circle> 元素
         circles = g_elements.find_all('circle')
-        print(circle)
+        
         for circle in circles:
+            print(circle)
             if circle is not None:
                 cx = circle.get('cx', 'N/A')
                 cy = circle.get('cy', 'N/A')
@@ -117,20 +118,22 @@ def get_talent(url, name, value):
                 print(f'Circle: cx={cx}, cy={cy}, r={r}')
         
         # 查找 <image> 元素
-        image = g_elements.find('image')
-        if image is not None:
-            x = image.get('x', 'N/A')
-            y = image.get('y', 'N/A')
-            title = image.get('data-bs-title', 'N/A')
-            print(f'Image: x={x}, y={y}, title={title}')
+        images = g_elements.find_all('image')
+        for image in images:
+            if image is not None:
+                x = image.get('x', 'N/A')
+                y = image.get('y', 'N/A')
+                title = image.get('data-bs-title', 'N/A')
+                print(f'Image: x={x}, y={y}, title={title}')
         
         # 查找 <text> 元素
-        text = g.find('text')
-        if text is not None:
-            x = text.attrib.get('x', 'N/A')
-            y = text.attrib.get('y', 'N/A')
-            content = text.text.strip() if text.text else 'N/A'
-            print(f'Text: x={x}, y={y}, content={content}')
+        texts = g_elements.find_all('text')
+        for text in texts:
+            if text is not None:
+                x = text.get('x', 'N/A')
+                y = text.get('y', 'N/A')
+                content = text.text.strip() if text.text else 'N/A'
+                print(f'Text: x={x}, y={y}, content={content}')
 
         # 提取每个元素的 src, data-bs-title, x, y 属性
         id = 0
