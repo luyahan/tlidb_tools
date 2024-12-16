@@ -1,0 +1,86 @@
+import requests
+from bs4 import BeautifulSoup
+import xml.etree.ElementTree as ET
+import re
+
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+}
+
+url = "https://tlidb.com/cn/Talent"
+response = requests.get(url, headers=headers)
+Talent_Name_Map = {}
+if response.status_code == 200:
+  soup = BeautifulSoup(response.text, 'html.parser')
+  target = soup.find('div', {'id':"Profession", 'class':'tab-pane fade show active'}).find('div', {'class':'row row-cols-1 row-cols-lg-3 g-2'})
+  for i in target:
+    for j in i.find('div').find_all('div')[1::2]:
+        a_tag = j.find('a')  # 提取<a>标签内容
+        text_content = a_tag.text if a_tag else "无"
+        href_value = a_tag['href'] if a_tag else "无"
+    if('New_God' in href_value):
+        continue
+    Talent_Name_Map[text_content] = href_value
+
+
+
+def get_talent(url, name, value): 
+    response = requests.get(talent_url, headers=headers)
+    if response.status_code == 200:
+        # 使用BeautifulSoup解析HTML
+        # print(response.text)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        svg = soup.find('svg')
+        lines = svg.find_all('line')
+
+        # 解析依赖关系
+        dependencies = []
+
+        for line in lines:
+            x1 = int(line['x1'])
+            y1 = int(line['y1'])
+            x2 = int(line['x2'])
+            y2 = int(line['y2'])
+            
+            dependencies.append(((x2, y2), (x1, y1)))
+        print(dependencies)
+
+        talents = svg.find_all('image')
+        # 提取每个元素的 src, data-bs-title, x, y 属性
+        for img in talents:
+            title = img.get('data-bs-title', 'No title')  # 获取 data-bs-title 属性
+            x = int(img.get('x', 'No x'))  # 获取 x 属性
+            y = int(img.get('y', 'No y'))  # 获取 y 属性
+            print(f"Title: {title}, x: {x}, y: {y}")
+
+
+        # 查找所有 class 为 level_up_time 的元素
+        level_up_times = svg.find_all(class_="level_up_time")
+
+        # 提取每个元素的文本内容
+        for element in level_up_times:
+            level_up_time = element.get_text()
+            x = element.get('x')
+            y = element.get('y')
+            print(f"Level Up Time: {level_up_time} x: {x}, y: {y}")
+
+        elements = svg.find_all('text', class_='points')
+
+        # 提取每个元素的 x, y 属性和文本内容
+        for element in elements:
+            x = element.get('x')
+            y = element.get('y')
+            points = element.get_text()  # 提取文本内容
+            print(f"x: {x}, y: {y}, depends points: {points}")
+
+
+    else:
+        print("Failed to fetch the page:", response.status_code)
+
+talent_url = "https://tlidb.com/cn/"
+
+for name, value in Talent_Name_Map.items():
+    talent_url = "https://tlidb.com/cn/" + value + "#Talent"
+    print(talent_url)
+    get_talent(talent_url, name, value)
