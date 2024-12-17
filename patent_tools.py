@@ -38,7 +38,7 @@ class SmallTalent:
     id: int
     dependce: int = None
     at_least: int = None
-    level_up_times: int = None
+    level_up_time: int = None
 
 def get_talent(url, name, value): 
 
@@ -80,21 +80,11 @@ def get_talent(url, name, value):
         dependencies_line = merge_start_coordinates(dependencies_line)
 
         
-        # 查找所有 class 为 level_up_time 的元素,加点上限
-        level_up_times = svg.find_all('text', class_='level_up_time')
-        # 提取每个元素的文本内容
-        level_up_times_map = []
-
-        for element in level_up_times:
-            x = int(element['x'])
-            y = int(element['y'])
-            level_up_time = int(element.get_text())
-            level_up_times_map.append({'level_up_time':level_up_time, 'x':x, 'y':y})
-        
         ## 提取天赋的限制点数
         points = svg.find_all('text', class_='points')
         at_leasts = []
         # 提取每个元素的 x, y 属性和文本内容
+        zero_point = (int(points[0].get('x')), int(points[0].get('y')))
         for element in points:
             x = int(element.get('x'))
             at_least = int(element.get_text())  # 提取文本内容
@@ -107,50 +97,40 @@ def get_talent(url, name, value):
         # 遍历所有找到的 <g> 元素并提取信息
         # print(g_elements)
         # 查找 <circle> 元素
-        circles = g_elements.find_all('circle')
-        
-        for circle in circles:
-            print(circle)
-            if circle is not None:
-                cx = circle.get('cx', 'N/A')
-                cy = circle.get('cy', 'N/A')
-                r = circle.get('r', 'N/A')
-                print(f'Circle: cx={cx}, cy={cy}, r={r}')
-        
-        # 查找 <image> 元素
-        images = g_elements.find_all('image')
-        for image in images:
-            if image is not None:
-                x = image.get('x', 'N/A')
-                y = image.get('y', 'N/A')
-                title = image.get('data-bs-title', 'N/A')
-                print(f'Image: x={x}, y={y}, title={title}')
-        
+        circles_soup = g_elements.find_all('circle', class_='talent_bg')
         # 查找 <text> 元素
-        texts = g_elements.find_all('text')
-        for text in texts:
+        texts_soup = g_elements.find_all('text', class_="level_up_time")
+        # 查找 <image> 元素
+        images_soup = g_elements.find_all('image', class_="talent")
+        
+        
+        assert(len(circles_soup) == len(texts_soup))
+        assert(len(circles_soup) ==len(images_soup))
+        circles=[]
+        for circle in circles_soup:
+            if circle is not None:
+                cx = int(circle.get('cx', None))
+                cy = int(circle.get('cy', None))
+                r = int(circle.get('r', None))
+            circles.append((cx, cy, r))
+        
+        level_up_times = []
+        for text in texts_soup:
             if text is not None:
-                x = text.get('x', 'N/A')
-                y = text.get('y', 'N/A')
-                content = text.text.strip() if text.text else 'N/A'
-                print(f'Text: x={x}, y={y}, content={content}')
-
-        # 提取每个元素的 src, data-bs-title, x, y 属性
+                x = text.get('x', None)
+                y = text.get('y', None)
+                content = int(text.text.strip() if text.text else None)
+                level_up_times.append(content)
+        
+        combined_array = [tuple for tuple in zip(circles, level_up_times, images_soup)]
+        # print(combined_array)
+        # 提取每个天赋的 src, data-bs-title, x, y 属性
         id = 0
         talent_map = {}
-        for talent in talents:
-            circle = talent["circle"]
-            img = talent["image"]
-            text = talent["text"]
-
-            print(f"Circle: cx={circle['cx']}, cy={circle['cy']}, r={circle['r']}")
-            print(f"Image: x={img['x']}, y={img['y']}, href={img['xlink:href']}")
-            print(f"Text: x={text['x']}, y={text['y']}, content={text.get_text()}")
-            print("-" * 40)
-
+        for circle, level_up_time, img in combined_array:
             title = img.get('data-bs-title', None)  # 获取 data-bs-title 属性
-            x = int(img.get('x', None))  # 获取 x 属性
-            y = int(img.get('y', None))  # 获取 y 属性
+            x = circle[0]  # 获取 x 属性
+            y = circle[1]  # 获取 y 属性
             
             if title:
                 # 使用 BeautifulSoup 解析 data-bs-title 的 HTML 内容
@@ -162,19 +142,19 @@ def get_talent(url, name, value):
                 title = None
                 descriptions = []
             # 输出结果
-            talent_map[id] = SmallTalent(title=title, descriptions=descriptions, x=x, y=y, id=id, dependce=None, at_least=None)
+            talent_map[id] = SmallTalent(title=title, descriptions=descriptions, level_up_time=level_up_time, x=x, y=y, id=id, dependce=None, at_least=None)
             id = id + 1
 
         for id,talent in talent_map.items():
             for line in dependencies_line:
-                if(len(line['start']) == 2 and calculate_distance_2d(talent.x, talent.y, line['start'][0], line['start'][1]) < 80):
+                if(len(line['start']) == 2 and calculate_distance_2d(talent.x, talent.y, line['start'][0], line['start'][1]) < 40):
                     line['start'] = [id]
         
         for id,talent in talent_map.items():
             for line in dependencies_line:
                 updated_ends = []
                 for end in line['end']:
-                    if(len(end) == 2 and calculate_distance_2d(talent.x, talent.y, end[0], end[1]) < 100):
+                    if(len(end) == 2 and calculate_distance_2d(talent.x, talent.y, end[0], end[1]) < 40):
                         updated_ends.append([id])
                     else:
                         updated_ends.append(end)
@@ -187,19 +167,16 @@ def get_talent(url, name, value):
                talent_map[i[0]].dependce = line['start'][0]
         
         for id,talent in talent_map.items():
-            print(id)
             assert talent.at_least == None
             for i in at_leasts:
-                if(abs(i[0] - talent.x) < 40):
+                if(abs(i[0] - talent.x) < 32):
                     talent.at_least = i[1]
             assert talent.at_least != None
-            assert talent.level_up_times == None
-            for i in level_up_times_map:
-                if(calculate_distance_2d(talent.x, talent.y, i['x'], i['y']) < 80):
-                    print(talent.x, talent.y, i['x'], i['y'], calculate_distance_2d(talent.x, talent.y, i['x'], i['y']))
-
-        
-        return talent_map
+            assert(talent_map[id].x >=zero_point[0])
+            assert(talent_map[id].y >=zero_point[1])
+            talent_map[id].x = talent.x - zero_point[0]
+            talent_map[id].y = talent.y - zero_point[1]
+        return talent_map 
         
     else:
         print("Failed to fetch the page:", response.status_code)
@@ -253,7 +230,6 @@ class Talent:
     small_talents_map: dict
 
 for name, value in Talent_Name_Map.items():
-    print(name)
     talent_url = "https://tlidb.com/cn/" + value + "#Talent"
     core_talent_url = "https://tlidb.com/cn/" + value + "#"+ name
     small_talents_map = get_talent(talent_url, name, value)
@@ -261,4 +237,4 @@ for name, value in Talent_Name_Map.items():
     talent = Talent(name=name, core_talents_map=core_talents_map, small_talents_map=small_talents_map)
     talent_dict = asdict(talent)
     talent_json = json.dumps(talent_dict, indent=4, ensure_ascii=False)
-    break
+    print(talent_json)
