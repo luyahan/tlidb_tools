@@ -1,0 +1,432 @@
+{
+    "name": "机械之神",
+    "core_talents_map": {
+        "0": {
+            "title": "号令",
+            "id": 0,
+            "descriptions": " 额外  +20 % 召唤物伤害 额外  +100 % 召唤技能施法速度",
+            "points": 12,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_haoling_Icon_128.webp"
+        },
+        "1": {
+            "title": "哨兵",
+            "id": 1,
+            "descriptions": " +1  哨卫数量上限 放置哨卫的技能额外  +100 % 施法速度",
+            "points": 12,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_shaobing_Icon_128.webp"
+        },
+        "2": {
+            "title": "龟缩",
+            "id": 2,
+            "descriptions": " 受到伤害时，  +50 % 几率获得 屏障",
+            "points": 12,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_guisuo_Icon_128.webp"
+        },
+        "3": {
+            "title": "强力护卫",
+            "id": 3,
+            "descriptions": " +2  召唤召唤物的技能等级 每秒 统御值 增加  4  点 魔灵  +40  初始 生长值",
+            "points": 24,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_qianglihuwei_Icon_128.webp"
+        },
+        "4": {
+            "title": "过度改装",
+            "id": 4,
+            "descriptions": " 额外  +30 % 哨卫伤害，额外  -50 % 非哨卫主动技能伤害",
+            "points": 24,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_guodugaizhuang_Icon_128.webp"
+        },
+        "5": {
+            "title": "同构武装",
+            "id": 5,
+            "descriptions": " 召唤物获得主手武器的 加成 额外  +15 % 召唤物攻击和施法速度",
+            "points": 24,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_tonggouwuzhuang_Icon_128.webp"
+        }
+    },
+    "small_talents_map": {
+        "0": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+15% 召唤物暴击值",
+                "+7% 召唤物技能范围"
+            ],
+            "x": 256,
+            "y": 56,
+            "id": 0,
+            "dependce": null,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Crit03_64.webp"
+        },
+        "1": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+15% 召唤物暴击伤害",
+                "+10% 召唤物技能范围"
+            ],
+            "x": 384,
+            "y": 56,
+            "id": 1,
+            "dependce": 0,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Crit03_64.webp"
+        },
+        "2": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+9% 召唤物伤害"
+            ],
+            "x": 640,
+            "y": 56,
+            "id": 2,
+            "dependce": null,
+            "at_least": 15,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgExtra_64.webp"
+        },
+        "3": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "+1 召唤召唤物的技能等级"
+            ],
+            "x": 768,
+            "y": 56,
+            "id": 3,
+            "dependce": 2,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Flask02_64.webp"
+        },
+        "4": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+3% 召唤物攻击与施法速度",
+                "每秒自然回复 4 魔力"
+            ],
+            "x": 128,
+            "y": 152,
+            "id": 4,
+            "dependce": null,
+            "at_least": 3,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Atk_64.webp"
+        },
+        "5": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+6% 召唤物攻击与施法速度",
+                "每秒自然回复 8 魔力"
+            ],
+            "x": 256,
+            "y": 152,
+            "id": 5,
+            "dependce": 4,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Atk_64.webp"
+        },
+        "6": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+9% 召唤物伤害"
+            ],
+            "x": 384,
+            "y": 152,
+            "id": 6,
+            "dependce": null,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Axe02_64.webp"
+        },
+        "7": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+18% 召唤物伤害"
+            ],
+            "x": 512,
+            "y": 152,
+            "id": 7,
+            "dependce": 6,
+            "at_least": 12,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/CastSpeed_64.webp"
+        },
+        "8": {
+            "title": "小型天赋",
+            "descriptions": [
+                "每秒统御值增加 1 点",
+                "魔灵 +2% 强化技能使用几率"
+            ],
+            "x": 640,
+            "y": 152,
+            "id": 8,
+            "dependce": null,
+            "at_least": 15,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Agi_64.webp"
+        },
+        "9": {
+            "title": "中型天赋",
+            "descriptions": [
+                "每秒统御值增加 2 点",
+                "魔灵 +6% 强化技能使用几率"
+            ],
+            "x": 768,
+            "y": 152,
+            "id": 9,
+            "dependce": 8,
+            "at_least": 18,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/AtkSpeed_64.webp"
+        },
+        "10": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+9% 伤害",
+                "+9% 召唤物伤害"
+            ],
+            "x": 0,
+            "y": 248,
+            "id": 10,
+            "dependce": null,
+            "at_least": 0,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/AtkSpeed_64.webp"
+        },
+        "11": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+18% 伤害",
+                "+18% 召唤物伤害"
+            ],
+            "x": 128,
+            "y": 248,
+            "id": 11,
+            "dependce": 10,
+            "at_least": 3,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/AtkSpeed_64.webp"
+        },
+        "12": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+3% 最大生命",
+                "+3% 最大护盾"
+            ],
+            "x": 256,
+            "y": 248,
+            "id": 12,
+            "dependce": null,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Es_64.webp"
+        },
+        "13": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+6% 最大生命",
+                "+6% 最大护盾"
+            ],
+            "x": 384,
+            "y": 248,
+            "id": 13,
+            "dependce": 12,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Es_64.webp"
+        },
+        "14": {
+            "title": "中型天赋",
+            "descriptions": [
+                "魔灵 +10% 冷却回复速度"
+            ],
+            "x": 512,
+            "y": 248,
+            "id": 14,
+            "dependce": 6,
+            "at_least": 12,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Area_64.webp"
+        },
+        "15": {
+            "title": "小型天赋",
+            "descriptions": [
+                "每秒自然回复 0.4% 生命",
+                "+2% 护盾充能速度",
+                "+2% 移动速度"
+            ],
+            "x": 640,
+            "y": 248,
+            "id": 15,
+            "dependce": null,
+            "at_least": 15,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Flask02_64.webp"
+        },
+        "16": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "+25% 生命自然回复速度",
+                "额外 -30% 护盾充能间隔",
+                "+12% 移动速度"
+            ],
+            "x": 768,
+            "y": 248,
+            "id": 16,
+            "dependce": 15,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Flask01_64.webp"
+        },
+        "17": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+7% 哨卫技能范围",
+                "+10% 哨卫持续时间",
+                "4.5% 哨卫投射物速度"
+            ],
+            "x": 128,
+            "y": 344,
+            "id": 17,
+            "dependce": null,
+            "at_least": 3,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Bow01_64.webp"
+        },
+        "18": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+7% 哨卫技能范围",
+                "+20% 哨卫持续时间",
+                "+9% 哨卫投射物速度"
+            ],
+            "x": 256,
+            "y": 344,
+            "id": 18,
+            "dependce": 17,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Bow01_64.webp"
+        },
+        "19": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+8% 屏障吸收量"
+            ],
+            "x": 384,
+            "y": 344,
+            "id": 19,
+            "dependce": null,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Area_64.webp"
+        },
+        "20": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+16% 屏障吸收量"
+            ],
+            "x": 512,
+            "y": 344,
+            "id": 20,
+            "dependce": 19,
+            "at_least": 12,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Area_64.webp"
+        },
+        "21": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+4% 哨卫技能释放频率"
+            ],
+            "x": 640,
+            "y": 344,
+            "id": 21,
+            "dependce": null,
+            "at_least": 15,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Duration_64.webp"
+        },
+        "22": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+8% 哨卫技能释放频率"
+            ],
+            "x": 768,
+            "y": 344,
+            "id": 22,
+            "dependce": 21,
+            "at_least": 18,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Bow02_64.webp"
+        },
+        "23": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+30% 哨卫技能暴击值"
+            ],
+            "x": 256,
+            "y": 440,
+            "id": 23,
+            "dependce": null,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Channel02_64.webp"
+        },
+        "24": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+45% 哨卫技能暴击值",
+                "+10% 哨卫技能暴击伤害"
+            ],
+            "x": 384,
+            "y": 440,
+            "id": 24,
+            "dependce": 23,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Dagger02_64.webp"
+        },
+        "25": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+12% 哨卫伤害"
+            ],
+            "x": 512,
+            "y": 440,
+            "id": 25,
+            "dependce": null,
+            "at_least": 12,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/AtkSpeed_64.webp"
+        },
+        "26": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+24% 哨卫伤害"
+            ],
+            "x": 640,
+            "y": 440,
+            "id": 26,
+            "dependce": 25,
+            "at_least": 15,
+            "level_up_time": 2,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Crossbow02_64.webp"
+        },
+        "27": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "如果近 1 秒内没有使用哨卫技能，额外 +12% 哨卫伤害"
+            ],
+            "x": 768,
+            "y": 440,
+            "id": 27,
+            "dependce": 26,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Dual01_64.webp"
+        }
+    }
+}

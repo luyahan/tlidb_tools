@@ -1,0 +1,430 @@
+{
+    "name": "征战之神",
+    "core_talents_map": {
+        "0": {
+            "title": "凝聚",
+            "id": 0,
+            "descriptions": " 每隔  1  秒，下一次核心技能额外  +50 % 暴击值",
+            "points": 12,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_ningju_Icon_128.webp"
+        },
+        "1": {
+            "title": "残暴",
+            "id": 1,
+            "descriptions": " 额外  +25 % 物理伤害 每  5  等级，额外  -1 % 元素伤害",
+            "points": 12,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_canbao_Icon_128.webp"
+        },
+        "2": {
+            "title": "坚强",
+            "id": 2,
+            "descriptions": " 受到 巨额伤害 后，保留1点生命，并且免疫持续伤害1秒，该效果具有  8  秒冷却时间",
+            "points": 12,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_jianqiang_Icon_128.webp"
+        },
+        "3": {
+            "title": "自主升级",
+            "id": 3,
+            "descriptions": " +20 % 攻击与法术格挡率 最近每格挡 1 次， +5 % 攻击与法术格挡率，至多叠加  5  层",
+            "points": 24,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_zizhushengji_Icon_128.webp"
+        },
+        "4": {
+            "title": "迎头痛击",
+            "id": 4,
+            "descriptions": " 额外  +100 % 暴击造成的 创伤 伤害",
+            "points": 24,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_yingtoutongji_Icon_128.webp"
+        },
+        "5": {
+            "title": "无边战意",
+            "id": 5,
+            "descriptions": " 拥有 战意 +12 %  战意 效果",
+            "points": 24,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Skill/CommonSkill/128/UI_CoreTalentIcon_wubianzhanyi_Icon_128.webp"
+        }
+    },
+    "small_talents_map": {
+        "0": {
+            "title": "小型天赋",
+            "descriptions": [
+                "2.5% 防御值",
+                "1.5% 几率避免伤害"
+            ],
+            "x": 256,
+            "y": 56,
+            "id": 0,
+            "dependce": null,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Evasion_64.webp"
+        },
+        "1": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+5% 防御值",
+                "+3% 几率避免伤害"
+            ],
+            "x": 384,
+            "y": 56,
+            "id": 1,
+            "dependce": 0,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgAll_64.webp"
+        },
+        "2": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+3% 攻击与施法速度"
+            ],
+            "x": 512,
+            "y": 56,
+            "id": 2,
+            "dependce": null,
+            "at_least": 12,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/CastSpeed_64.webp"
+        },
+        "3": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+5% 攻击速度",
+                "+10% 暴击伤害"
+            ],
+            "x": 640,
+            "y": 56,
+            "id": 3,
+            "dependce": 2,
+            "at_least": 15,
+            "level_up_time": 2,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Crit01_64.webp"
+        },
+        "4": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "+24% 连续攻击几率"
+            ],
+            "x": 768,
+            "y": 56,
+            "id": 4,
+            "dependce": 3,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Atk_64.webp"
+        },
+        "5": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+15% 暴击值"
+            ],
+            "x": 128,
+            "y": 152,
+            "id": 5,
+            "dependce": null,
+            "at_least": 3,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Crit04_64.webp"
+        },
+        "6": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+25% 暴击值",
+                "暴击时，回复 6 魔力"
+            ],
+            "x": 256,
+            "y": 152,
+            "id": 6,
+            "dependce": 5,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Crit02_64.webp"
+        },
+        "7": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+9% 伤害"
+            ],
+            "x": 384,
+            "y": 152,
+            "id": 7,
+            "dependce": null,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgAll_64.webp"
+        },
+        "8": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+18% 伤害"
+            ],
+            "x": 512,
+            "y": 152,
+            "id": 8,
+            "dependce": 7,
+            "at_least": 12,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgExtra_64.webp"
+        },
+        "9": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+5% 施法速度",
+                "+10% 暴击伤害"
+            ],
+            "x": 640,
+            "y": 152,
+            "id": 9,
+            "dependce": 2,
+            "at_least": 15,
+            "level_up_time": 2,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgExtra_64.webp"
+        },
+        "10": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "使用核心法术技能时，+12% 几率额外触发一次"
+            ],
+            "x": 768,
+            "y": 152,
+            "id": 10,
+            "dependce": 9,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Area_64.webp"
+        },
+        "11": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+9% 伤害"
+            ],
+            "x": 0,
+            "y": 248,
+            "id": 11,
+            "dependce": null,
+            "at_least": 0,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgAll_64.webp"
+        },
+        "12": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+18% 伤害"
+            ],
+            "x": 128,
+            "y": 248,
+            "id": 12,
+            "dependce": 11,
+            "at_least": 3,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgAll_64.webp"
+        },
+        "13": {
+            "title": "小型天赋",
+            "descriptions": [
+                "2.5% 攻击格挡率",
+                "2.5% 法术格挡率"
+            ],
+            "x": 256,
+            "y": 248,
+            "id": 13,
+            "dependce": null,
+            "at_least": 6,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Atk_64.webp"
+        },
+        "14": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+5% 攻击格挡率",
+                "+5% 法术格挡率"
+            ],
+            "x": 384,
+            "y": 248,
+            "id": 14,
+            "dependce": 13,
+            "at_least": 9,
+            "level_up_time": 2,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Block_64.webp"
+        },
+        "15": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "格挡时，10% 几率回复 15% 生命、护盾和魔力"
+            ],
+            "x": 512,
+            "y": 248,
+            "id": 15,
+            "dependce": 14,
+            "at_least": 12,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Flask02_64.webp"
+        },
+        "16": {
+            "title": "小型天赋",
+            "descriptions": [
+                "1.5% 生命返还",
+                "1.5% 护盾返还"
+            ],
+            "x": 640,
+            "y": 248,
+            "id": 16,
+            "dependce": null,
+            "at_least": 15,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Dual01_64.webp"
+        },
+        "17": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "+8% 生命返还",
+                "受到重创时，回复 20% 已损生命"
+            ],
+            "x": 768,
+            "y": 248,
+            "id": 17,
+            "dependce": 16,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Defence03_64.webp"
+        },
+        "18": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+7% 技能范围",
+                "+5% 投射物速度",
+                "+2% 移动速度"
+            ],
+            "x": 128,
+            "y": 344,
+            "id": 18,
+            "dependce": null,
+            "at_least": 3,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Area_64.webp"
+        },
+        "19": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+14% 技能范围",
+                "+10% 投射物速度",
+                "+3% 移动速度"
+            ],
+            "x": 256,
+            "y": 344,
+            "id": 19,
+            "dependce": 18,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Agi_64.webp"
+        },
+        "20": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+9% 物理伤害"
+            ],
+            "x": 384,
+            "y": 344,
+            "id": 20,
+            "dependce": null,
+            "at_least": 9,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgExtra_64.webp"
+        },
+        "21": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+18% 物理伤害"
+            ],
+            "x": 512,
+            "y": 344,
+            "id": 21,
+            "dependce": 20,
+            "at_least": 12,
+            "level_up_time": 2,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Aura_64.webp"
+        },
+        "22": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "+1 物理技能等级"
+            ],
+            "x": 640,
+            "y": 344,
+            "id": 22,
+            "dependce": 21,
+            "at_least": 15,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/DmgAll_64.webp"
+        },
+        "23": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "+8% 护盾返还",
+                "受到重创时，回复 20% 已损护盾"
+            ],
+            "x": 768,
+            "y": 344,
+            "id": 23,
+            "dependce": 16,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Defence03_64.webp"
+        },
+        "24": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+3% 最大生命",
+                "+3% 防御值"
+            ],
+            "x": 256,
+            "y": 440,
+            "id": 24,
+            "dependce": null,
+            "at_least": 6,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Armor_64.webp"
+        },
+        "25": {
+            "title": "中型天赋",
+            "descriptions": [
+                "+6% 最大生命",
+                "+6% 防御值"
+            ],
+            "x": 384,
+            "y": 440,
+            "id": 25,
+            "dependce": 24,
+            "at_least": 9,
+            "level_up_time": 3,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Armor_64.webp"
+        },
+        "26": {
+            "title": "小型天赋",
+            "descriptions": [
+                "+8% 创伤伤害",
+                "+2% 创伤持续时间"
+            ],
+            "x": 640,
+            "y": 440,
+            "id": 26,
+            "dependce": null,
+            "at_least": 15,
+            "level_up_time": 4,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Curse_64.webp"
+        },
+        "27": {
+            "title": "传奇中型天赋",
+            "descriptions": [
+                "额外 +12% 暴击造成的创伤伤害"
+            ],
+            "x": 768,
+            "y": 440,
+            "id": 27,
+            "dependce": 26,
+            "at_least": 18,
+            "level_up_time": 1,
+            "img_url": "https://cdn.tlidb.com/UI/Textures/Common/Icon/Silhouette/Talent/64/Crit01_64.webp"
+        }
+    }
+}

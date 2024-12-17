@@ -39,6 +39,7 @@ class SmallTalent:
     dependce: int = None
     at_least: int = None
     level_up_time: int = None
+    img_url: str = None
 
 def get_talent(url, name, value): 
 
@@ -131,6 +132,7 @@ def get_talent(url, name, value):
             title = img.get('data-bs-title', None)  # 获取 data-bs-title 属性
             x = circle[0]  # 获取 x 属性
             y = circle[1]  # 获取 y 属性
+            img_url = img.get('xlink:href', None)  # 获取 data-bs-title 属性
             
             if title:
                 # 使用 BeautifulSoup 解析 data-bs-title 的 HTML 内容
@@ -142,7 +144,7 @@ def get_talent(url, name, value):
                 title = None
                 descriptions = []
             # 输出结果
-            talent_map[id] = SmallTalent(title=title, descriptions=descriptions, level_up_time=level_up_time, x=x, y=y, id=id, dependce=None, at_least=None)
+            talent_map[id] = SmallTalent(title=title, descriptions=descriptions, level_up_time=level_up_time, x=x, y=y, id=id, img_url=img_url, dependce=None, at_least=None)
             id = id + 1
 
         for id,talent in talent_map.items():
@@ -188,6 +190,7 @@ class CoreTalent:
     id: int
     descriptions: str
     points: int
+    img_url: str
 
 def get_core_talent(url, name, value):
     response = requests.get(talent_url, headers=headers)
@@ -197,6 +200,7 @@ def get_core_talent(url, name, value):
     id = 0
     core_talents_map = {}
     for col in targrts[0:6]:
+        img_url = col.find('img').get('src', None)
         # 提取<strong>标签的文本
         strong_tag = col.find('strong')
         # 获取文本内容
@@ -215,7 +219,7 @@ def get_core_talent(url, name, value):
         effect = ' '.join(effect_description).strip()  # 提取所有文本并合并
         effect = effect.split('0/1')[-1]
         points = int(points.strip('pts'))
-        core_talent = CoreTalent(title=name, points=points, descriptions=effect, id=id)
+        core_talent = CoreTalent(title=name, points=points, descriptions=effect, id=id, img_url=img_url)
         core_talents_map[id] = core_talent
         id = id + 1
     return core_talents_map
@@ -229,6 +233,32 @@ class Talent:
     core_talents_map: dict 
     small_talents_map: dict
 
+
+talent_list = list(Talent_Name_Map.keys())
+
+talent_group = []
+for i, val in enumerate(talent_list[0:6]):
+    start_index = i * 3
+    no_base_talent = talent_list[6:][start_index:start_index + 3]
+    if len(no_base_talent) == 3:  
+        no_base_talent.insert(0, val)
+        talent_group.append(no_base_talent)
+
+
+result = []
+for i in talent_group:
+    assert[len(i) == 4]
+    talent_name_group = ((i[0], Talent_Name_Map[i[0]]),
+     (i[1], Talent_Name_Map[i[1]]),
+     (i[2], Talent_Name_Map[i[2]]),
+     (i[3], Talent_Name_Map[i[3]]))
+    result.append(talent_name_group)
+
+file_path = "out/patent_list.txt"
+with open(file_path, 'w', encoding='utf-8') as file:
+    json.dump(result, file, ensure_ascii=False, indent=4)
+
+
 for name, value in Talent_Name_Map.items():
     talent_url = "https://tlidb.com/cn/" + value + "#Talent"
     core_talent_url = "https://tlidb.com/cn/" + value + "#"+ name
@@ -237,4 +267,6 @@ for name, value in Talent_Name_Map.items():
     talent = Talent(name=name, core_talents_map=core_talents_map, small_talents_map=small_talents_map)
     talent_dict = asdict(talent)
     talent_json = json.dumps(talent_dict, indent=4, ensure_ascii=False)
-    print(talent_json)
+    file_path = "out/patent_"+value+".txt"
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(talent_dict, file, ensure_ascii=False, indent=4)
